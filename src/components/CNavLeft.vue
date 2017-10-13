@@ -1,6 +1,6 @@
 <!--顶部导航组件-->
 <template>
-  <div class="container" style="width: 200px">
+  <div class="parent">
     <el-menu default-active="2" class="el-menu-vertical-demo" @open="handleOpen" @close="handleClose" theme="dark">
       <el-submenu index="1">
         <template slot="title">导航一</template>
@@ -19,6 +19,7 @@
       <el-menu-item index="2">导航二</el-menu-item>
       <el-menu-item index="3">导航三</el-menu-item>
     </el-menu>
+
   </div>
 </template>
 
@@ -48,10 +49,5 @@
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss" scoped="" type="text/scss">
 
-  .container {
-    height: 48px;
-    width: 200px;
-    background-color: rebeccapurple;
-  }
 
 </style>

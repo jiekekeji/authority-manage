@@ -1,6 +1,6 @@
 <!--顶部导航组件-->
 <template>
-  <div class="container">
+  <div class="parent">
 
 
   </div>
@@ -25,8 +25,8 @@
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss" scoped="" type="text/scss">
 
-  .container {
-    height: 48px;
+  .parent {
+    height: 36px;
     width: 100%;
     background-color: rebeccapurple;
   }

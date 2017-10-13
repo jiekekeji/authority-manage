@@ -66,7 +66,7 @@
   .content-right {
     flex-grow: 1;
     min-width: 100px;
-    background-color: rosybrown;
+    /*background-color: rosybrown;*/
   }
 
 </style>
