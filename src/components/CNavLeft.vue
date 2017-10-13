@@ -1,6 +1,6 @@
 <!--顶部导航组件-->
 <template>
-  <div class="container" style="font-size: 12px">
+  <div class="container" style="width: 200px">
     <el-menu default-active="2" class="el-menu-vertical-demo" @open="handleOpen" @close="handleClose" theme="dark">
       <el-submenu index="1">
         <template slot="title">导航一</template>

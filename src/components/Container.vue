@@ -3,10 +3,14 @@
     <div class="top">
       <CNavTop></CNavTop>
     </div>
-    <div class="left">
-      <CNavLeft></CNavLeft>
+    <div class="content">
+      <div class="content-left">
+        <CNavLeft></CNavLeft>
+      </div>
+      <div class="content-right">
+
+      </div>
     </div>
-    <div class="right"></div>
 
 
   </div>
@@ -38,8 +42,31 @@
 
   .container {
     display: flex;
+    flex-flow: row wrap;
     min-width: 1200px;
+  }
+
+  .top {
     width: 100%;
+    height: 36px;
+  }
+
+  .content {
+    width: 100%;
+    height: 90px;
+    display: flex;
+    flex-flow: nowrap;
+  }
+
+  .content-left {
+    height: 200px;
+    width: 200px;
+  }
+
+  .content-right {
+    flex-grow: 1;
+    min-width: 100px;
+    background-color: rosybrown;
   }
 
 </style>
