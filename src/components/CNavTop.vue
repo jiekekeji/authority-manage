@@ -26,7 +26,7 @@
 <style scoped lang="scss" scoped="" type="text/scss">
 
   .parent {
-    height: 36px;
+    height: 48px;
     width: 100%;
     background-color: rebeccapurple;
   }
