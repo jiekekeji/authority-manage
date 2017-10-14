@@ -1,7 +1,7 @@
 <!--顶部导航组件-->
 <template>
   <div class="parent">
-    <el-menu default-active="2" class="el-menu-vertical-demo" @open="handleOpen" @close="handleClose" theme="dark">
+    <el-menu default-active="2" class="el-menu-vertical-demo" @open="handleOpen" @close="handleClose" theme="light">
       <el-submenu index="1">
         <template slot="title">导航一</template>
         <el-menu-item-group title="分组一">
