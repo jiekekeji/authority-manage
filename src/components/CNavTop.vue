@@ -4,6 +4,7 @@
     <p class="logo">
       超级管理后台
     </p>
+    <p class="menu_switch"></p>
 
   </div>
 </template>
@@ -40,6 +41,19 @@
     color: white;
     line-height: 48px;
     text-indent: 16px;
+    display: inline-block;
+    float: left;
     border-right: 0.5px dashed #eef1f7;
+    cursor: pointer;
+  }
+
+  .menu_switch {
+    display: inline-block;
+    width: 48px;
+    height: 48px;
+    background-image: url("../assets/images/icon_3_line.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    cursor: pointer;
   }
 </style>

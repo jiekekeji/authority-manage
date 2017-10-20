@@ -1,8 +1,12 @@
 <!--顶部导航组件-->
 <template>
   <div class="parent">
-    <el-menu default-active="2" class="el-menu-vertical-demo" @open="handleOpen" @close="handleClose" theme="light">
-      <el-submenu index="1">
+    <el-menu default-active="2" class="el-menu-vertical-demo"
+             @open="handleOpen"
+             @close="handleClose" theme="light"
+             :router="true" :unique-opened="true">
+      <el-menu-item index="/container/pdemo">首页</el-menu-item>
+      <el-submenu index="2">
         <template slot="title">导航一</template>
         <el-menu-item-group title="分组一">
           <el-menu-item index="1-1">选项1</el-menu-item>
@@ -16,10 +20,8 @@
           <el-menu-item index="1-4-1">选项1</el-menu-item>
         </el-submenu>
       </el-submenu>
-      <el-menu-item index="2">导航二</el-menu-item>
       <el-menu-item index="3">导航三</el-menu-item>
     </el-menu>
-
   </div>
 </template>
 
