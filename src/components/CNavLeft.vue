@@ -21,6 +21,22 @@
         </el-submenu>
       </el-submenu>
       <el-menu-item index="3">导航三</el-menu-item>
+      <el-menu-item index="3">导航三</el-menu-item>
+      <el-menu-item index="3">导航三</el-menu-item>
+      <el-menu-item index="3">导航三</el-menu-item>
+      <el-menu-item index="3">导航三</el-menu-item>
+      <el-menu-item index="3">导航三</el-menu-item>
+      <el-menu-item index="3">导航三</el-menu-item>
+      <el-menu-item index="3">导航三</el-menu-item>
+      <el-menu-item index="3">导航三</el-menu-item>
+      <el-menu-item index="3">导航三</el-menu-item>
+      <el-menu-item index="3">导航三</el-menu-item>
+      <el-menu-item index="3">导航三</el-menu-item>
+      <el-menu-item index="3">导航三</el-menu-item>
+      <el-menu-item index="3">导航三</el-menu-item>
+      <el-menu-item index="3">导航三</el-menu-item>
+
+
     </el-menu>
   </div>
 </template>
@@ -53,7 +69,7 @@
 
   .parent {
     height: 100%;
-    width: 100%;
+    width: 200px;
     display: block;
   }
 </style>

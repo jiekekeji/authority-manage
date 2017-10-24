@@ -36,7 +36,7 @@
   }
 
   .logo {
-    width: 200px;
+    width: 220px;
     height: 100%;
     color: white;
     line-height: 48px;

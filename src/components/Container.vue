@@ -5,14 +5,16 @@
     <div class="top">
       <CNavTop></CNavTop>
     </div>
+    <div class="zhanwei">
+    </div>
     <!--主体内容-->
     <div class="content">
       <!--左边的菜单栏-->
-      <div class="content-left">
+      <div class="content-left" id="container-left" v-bind:style="{height: contentHeight + 'px' }">
         <CNavLeft></CNavLeft>
       </div>
       <!--右边的内容区域-->
-      <div class="content-right">
+      <div class="content-right" id="container-right" v-bind:style="{height: contentHeight + 'px' }">
         <keep-alive>
           <router-view></router-view>
         </keep-alive>
@@ -26,14 +28,20 @@
   import CNavLeft from "../components/CNavLeft.vue"
   export default {
     data () {
-      return {}
+      return {
+        contentHeight: 0
+      }
     },
     components: {
       CNavTop,
       CNavLeft
     },
     activated(){
-
+      let that = this;
+      this.contentHeight = window.innerHeight;
+      window.onresize = function () {
+        that.contentHeight = window.innerHeight;
+      };
     },
     beforeRouteLeave (to, from, next) {
       next();
@@ -54,26 +62,35 @@
   .top {
     width: 100%;
     height: 48px;
+    position: fixed;
+    top: 0px;
+
+  }
+
+  /*占位行*/
+  .zhanwei {
+    width: 100%;
+    height: 48px;
   }
 
   /*导航条下的主体内容*/
   .content {
     width: 100%;
     display: flex;
-
   }
 
   //左侧导航栏
   .content-left {
-    width: 200px;
-    height: 100%;
+    width: 220px;
+    overflow: auto;
     background-color: #eef1f7;
   }
 
   //右侧内容区域
   .content-right {
     flex-grow: 100;
-    min-width: 1000px;
+    min-width: 980px;
+    overflow: auto;
     background-color: darkseagreen;
   }
 
