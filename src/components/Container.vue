@@ -1,6 +1,6 @@
 <!--主容器-->
 <template>
-  <div class="container">
+  <div class="container-all">
     <!--顶部导航条-->
     <div class="top">
       <CNavTop></CNavTop>
@@ -45,10 +45,9 @@
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss" scoped="" type="text/scss">
 
-  .container {
-    display: flex;
-    flex-flow: row wrap;
+  .container-all {
     min-width: 1200px;
+    width: 100%;
   }
 
   /*导航条*/
@@ -59,30 +58,23 @@
 
   /*导航条下的主体内容*/
   .content {
-    display: flex;
-    flex-flow: nowrap;
-    position: fixed;
-    top: 48px;
     width: 100%;
-    bottom: 0px;
-    .content-left {
-      width: 200px;
-      position: absolute;
-      top: 0px;
-      left: 0px;
-      bottom: 0px;
-      background-color: #eef1f7;
-    }
+    display: flex;
 
-    .content-right {
-      flex-grow: 1;
-      min-width: 1000px;
-      position: absolute;
-      top: 0px;
-      left: 200px;
-      right: 0px;
-      bottom: 0px;
-    }
+  }
+
+  //左侧导航栏
+  .content-left {
+    width: 200px;
+    height: 100%;
+    background-color: #eef1f7;
+  }
+
+  //右侧内容区域
+  .content-right {
+    flex-grow: 100;
+    min-width: 1000px;
+    background-color: darkseagreen;
   }
 
 

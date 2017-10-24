@@ -6,7 +6,6 @@ $color-top-blue: #009aff;
   height: 42px;
   line-height: 42px;
   width: 100%;
-  //background-color: #eef1f7;
   span:first-child {
     margin-left: 10px;
   }
@@ -15,13 +14,11 @@ $color-top-blue: #009aff;
 //翻页样式
 .pagination-parent {
   height: 58px;
-  width: 100%;
-  position: absolute;
   background-color: #f2f2f2;
-  bottom: 5px;
+  position: relative;
   .pagination-body {
     position: absolute;
-    top: 10px;
-    right: 30px;
+    top: 13px;
+    right: 120px;
   }
 }

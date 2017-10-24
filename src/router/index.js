@@ -3,6 +3,7 @@ import VueRouter from 'vue-router'
 import Container from "../components/Container.vue"
 import Plogin from "../components/Plogin.vue"
 import Pdemo from "../components/PDemo.vue"
+import Pdemo1 from "../components/PDemo1.vue"
 Vue.use(VueRouter)
 
 //路由映射配置
@@ -22,6 +23,10 @@ const routes = [
       {
         path: "pdemo",
         component: Pdemo
+      },
+      {
+        path: "pdemo1",
+        component: Pdemo1
       }
     ]
   }
