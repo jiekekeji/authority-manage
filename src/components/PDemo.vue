@@ -10,19 +10,38 @@
     <!--操作表单区域-->
     <div class="option-parent">
       <el-row :gutter="0">
-        <el-col :span="8">
-          <div class="grid-content bg-purple">
-            <el-input v-model="input" placeholder="请输入内容"></el-input>
-          </div>
-        </el-col>
-        <el-col :span="8">
+        <el-col :span="4">
           <div class="grid-content bg-purple">
             <el-input v-model="input" placeholder="请输入内容"></el-input>
           </div>
         </el-col>
         <el-col :span="4">
           <div class="grid-content bg-purple">
+            <el-select v-model="value" placeholder="请选择">
+              <el-option
+                v-for="item in options"
+                :key="item.value"
+                :label="item.label"
+                :value="item.value">
+              </el-option>
+            </el-select>
+          </div>
+        </el-col>
+
+        <el-col :span="7">
+          <div class="grid-content bg-purple">
             <el-input v-model="input" placeholder="请输入内容"></el-input>
+          </div>
+        </el-col>
+        <el-col :span="5">
+          <div class="grid-content bg-purple">
+            <el-date-picker
+              v-model="value1"
+              type="date"
+              align="center"
+              placeholder="选择日期"
+              :picker-options="pickerOptions0">
+            </el-date-picker>
           </div>
         </el-col>
         <el-col :span="4">
@@ -79,7 +98,25 @@
 <script>
   export default {
     data () {
-      return {}
+      return {
+        options: [{
+          value: '选项1',
+          label: '黄金糕'
+        }, {
+          value: '选项2',
+          label: '双皮奶'
+        }, {
+          value: '选项3',
+          label: '蚵仔煎'
+        }, {
+          value: '选项4',
+          label: '龙须面'
+        }, {
+          value: '选项5',
+          label: '北京烤鸭'
+        }],
+        value: ''
+      }
     },
     components: {},
     activated(){
