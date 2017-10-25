@@ -3,11 +3,20 @@
   <div class="parent">
     <el-menu default-active="2" class="el-menu-vertical-demo"
              @open="handleOpen"
-             @close="handleClose" theme="light"
-             :router="true" :unique-opened="true">
-      <el-menu-item index="/container/pdemo">首页</el-menu-item>
+             @close="handleClose"
+             theme="light"
+             :router="true"
+             :unique-opened="true"
+             :collapse="menuStatus">
+      <el-menu-item index="/container/pdemo">
+        <i class="el-icon-menu"></i>
+        <span slot="title">首页</span>
+      </el-menu-item>
       <el-submenu index="2">
-        <template slot="title">导航一</template>
+        <template slot="title">
+          <i class="el-icon-menu"></i>
+          <span slot="title">导航一</span>
+        </template>
         <el-menu-item-group title="分组一">
           <el-menu-item index="1-1">选项1</el-menu-item>
           <el-menu-item index="1-2">选项2</el-menu-item>
@@ -20,21 +29,22 @@
           <el-menu-item index="1-4-1">选项1</el-menu-item>
         </el-submenu>
       </el-submenu>
-      <el-menu-item index="3">导航三</el-menu-item>
-      <el-menu-item index="3">导航三</el-menu-item>
-      <el-menu-item index="3">导航三</el-menu-item>
-      <el-menu-item index="3">导航三</el-menu-item>
-      <el-menu-item index="3">导航三</el-menu-item>
-      <el-menu-item index="3">导航三</el-menu-item>
-      <el-menu-item index="3">导航三</el-menu-item>
-      <el-menu-item index="3">导航三</el-menu-item>
-      <el-menu-item index="3">导航三</el-menu-item>
-      <el-menu-item index="3">导航三</el-menu-item>
-      <el-menu-item index="3">导航三</el-menu-item>
-      <el-menu-item index="3">导航三</el-menu-item>
-      <el-menu-item index="3">导航三</el-menu-item>
-      <el-menu-item index="3">导航三</el-menu-item>
-      <el-menu-item index="3">导航三</el-menu-item>
+      <el-menu-item index="3">
+        <i class="el-icon-menu"></i>
+        <span slot="title">首页</span>
+      </el-menu-item>
+      <el-menu-item index="3">
+        <i class="el-icon-menu"></i>
+        <span slot="title">首页</span>
+      </el-menu-item>
+      <el-menu-item index="3">
+        <i class="el-icon-menu"></i>
+        <span slot="title">首页</span>
+      </el-menu-item>
+      <el-menu-item index="3">
+        <i class="el-icon-menu"></i>
+        <span slot="title">首页</span>
+      </el-menu-item>
 
 
     </el-menu>
@@ -45,6 +55,14 @@
   export default {
     data () {
       return {}
+    },
+    props: {
+      menuStatus: false
+    },
+    watch: {
+      "menuStatus": function () {
+        console.log("sdss", this.menuStatus);
+      }
     },
     components: {},
     activated(){
@@ -69,7 +87,7 @@
 
   .parent {
     height: 100%;
-    width: 200px;
+    /*width: 200px;*/
     display: block;
   }
 </style>

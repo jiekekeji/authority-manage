@@ -50,7 +50,7 @@
   }
 
   .option-parent {
-    height: 80px;
+    height: 1000px;
     width: 100%;
     background-color: azure;
   }

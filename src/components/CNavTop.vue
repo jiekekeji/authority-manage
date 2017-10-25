@@ -4,7 +4,7 @@
     <p class="logo">
       超级管理后台
     </p>
-    <p class="menu_switch"></p>
+    <p class="menu_switch" @click="menuSwitch()"></p>
 
   </div>
 </template>
@@ -21,7 +21,11 @@
     beforeRouteLeave (to, from, next) {
       next();
     },
-    methods: {}
+    methods: {
+      menuSwitch(){
+        this.$emit("changeMenuStatus");
+      }
+    }
   }
 </script>
 

@@ -3,18 +3,20 @@
   <div class="container-all">
     <!--顶部导航条-->
     <div class="top">
-      <CNavTop></CNavTop>
+      <CNavTop v-on:changeMenuStatus="changeMenuStatus"></CNavTop>
     </div>
-    <div class="zhanwei">
-    </div>
+    <!--占位行防止被顶部导航条挡住-->
+    <div class="blank-line"></div>
+
     <!--主体内容-->
     <div class="content">
       <!--左边的菜单栏-->
-      <div class="content-left" id="container-left" v-bind:style="{height: contentHeight + 'px' }">
-        <CNavLeft></CNavLeft>
+      <div id="container-left"
+           v-bind:style="{height: contentHeight + 'px',width:leftWidth }">
+        <CNavLeft :menuStatus="menuStatus"></CNavLeft>
       </div>
       <!--右边的内容区域-->
-      <div class="content-right" id="container-right" v-bind:style="{height: contentHeight + 'px' }">
+      <div id="container-right" v-bind:style="{height: contentHeight + 'px' }">
         <keep-alive>
           <router-view></router-view>
         </keep-alive>
@@ -27,26 +29,50 @@
   import CNavTop from "../components/CNavTop.vue"
   import CNavLeft from "../components/CNavLeft.vue"
   export default {
+
     data () {
       return {
-        contentHeight: 0
+        contentHeight: 0,
+        menuStatus: true,//左侧导航栏的显示状态，默认为显示,
+        topHeight: 48,//顶部导航条的高度
+        leftWidth: "auto",//左边容器的宽度
       }
     },
+
     components: {
       CNavTop,
       CNavLeft
     },
+
     activated(){
-      let that = this;
-      this.contentHeight = window.innerHeight;
-      window.onresize = function () {
-        that.contentHeight = window.innerHeight;
-      };
+      this.istenWindinSize();
     },
+
     beforeRouteLeave (to, from, next) {
       next();
     },
-    methods: {}
+
+    methods: {
+      //改变左侧导航栏的显示状态
+      changeMenuStatus(){
+        if (this.menuStatus) {
+          this.menuStatus = false;
+          this.leftWidth = "220px"
+          return;
+        }
+        this.leftWidth = "auto"
+        this.menuStatus = true;
+      },
+
+      //监听浏览器视窗大小的变化
+      istenWindinSize(){
+        let that = this;
+        this.contentHeight = window.innerHeight - this.topHeight;
+        window.onresize = function () {
+          that.contentHeight = window.innerHeight - this.topHeight;
+        };
+      }
+    }
   }
 </script>
 
@@ -64,11 +90,12 @@
     height: 48px;
     position: fixed;
     top: 0px;
+    z-index: 1000;
 
   }
 
   /*占位行*/
-  .zhanwei {
+  .blank-line {
     width: 100%;
     height: 48px;
   }
@@ -80,14 +107,14 @@
   }
 
   //左侧导航栏
-  .content-left {
-    width: 220px;
+  #container-left {
+    max-width: 220px;
     overflow: auto;
     background-color: #eef1f7;
   }
 
   //右侧内容区域
-  .content-right {
+  #container-right {
     flex-grow: 100;
     min-width: 980px;
     overflow: auto;
