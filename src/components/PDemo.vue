@@ -8,7 +8,55 @@
       <el-breadcrumb-item>活动详情</el-breadcrumb-item>
     </el-breadcrumb>
     <!--操作表单区域-->
-    <div class="option-parent"></div>
+    <div class="option-parent">
+      <el-row :gutter="0">
+        <el-col :span="8">
+          <div class="grid-content bg-purple">
+            <el-input v-model="input" placeholder="请输入内容"></el-input>
+          </div>
+        </el-col>
+        <el-col :span="8">
+          <div class="grid-content bg-purple">
+            <el-input v-model="input" placeholder="请输入内容"></el-input>
+          </div>
+        </el-col>
+        <el-col :span="4">
+          <div class="grid-content bg-purple">
+            <el-input v-model="input" placeholder="请输入内容"></el-input>
+          </div>
+        </el-col>
+        <el-col :span="4">
+          <div class="grid-content bg-purple">
+            <el-input v-model="input" placeholder="请输入内容"></el-input>
+          </div>
+        </el-col>
+      </el-row>
+      <el-row :gutter="0">
+        <el-col :span="8">
+          <div class="grid-content bg-purple">
+            <el-input v-model="input" placeholder="请输入内容"></el-input>
+          </div>
+        </el-col>
+        <el-col :span="8">
+          <div class="grid-content bg-purple">
+            <el-input v-model="input" placeholder="请输入内容"></el-input>
+          </div>
+        </el-col>
+        <el-col :span="2">
+          <div class="grid-content bg-purple">
+            <el-button type="success">成功按钮</el-button>
+          </div>
+        </el-col>
+        <el-col :span="2">
+          <div class="grid-content bg-purple">
+            <el-button type="info">信息按钮</el-button>
+          </div>
+        </el-col>
+        <el-col :span="4">
+          <div class="grid-content bg-purple"></div>
+        </el-col>
+      </el-row>
+    </div>
 
     <!--数据表格区域-->
 
@@ -53,6 +101,40 @@
     height: 1000px;
     width: 100%;
     background-color: azure;
+  }
+
+  .el-row {
+    /*margin-bottom: 5px;*/
+    /*&:last-child {*/
+    /*margin-bottom: 0;*/
+    /*}*/
+  }
+
+  .el-col {
+    border-radius: 4px;
+  }
+
+  .bg-purple-dark {
+    background: #99a9bf;
+  }
+
+  .bg-purple {
+    background: #d3dce6;
+  }
+
+  .bg-purple-light {
+    background: #e5e9f2;
+  }
+
+  .grid-content {
+    /*border-radius: 4px;*/
+    min-height: 36px;
+    padding: 5px;
+  }
+
+  .row-bg {
+    /*padding: 10px 0;*/
+    background-color: #f9fafc;
   }
 
 </style>

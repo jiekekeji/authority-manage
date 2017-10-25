@@ -10,17 +10,20 @@
 
     <!--主体内容-->
     <div class="content">
+
       <!--左边的菜单栏-->
       <div id="container-left"
            v-bind:style="{height: contentHeight + 'px',width:leftWidth }">
         <CNavLeft :menuStatus="menuStatus"></CNavLeft>
       </div>
+
       <!--右边的内容区域-->
       <div id="container-right" v-bind:style="{height: contentHeight + 'px' }">
         <keep-alive>
           <router-view></router-view>
         </keep-alive>
       </div>
+
     </div>
   </div>
 </template>

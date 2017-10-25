@@ -2,7 +2,7 @@
 <template>
   <div class="parent">
     <p class="logo">
-      超级管理后台
+      管理后台
     </p>
     <p class="menu_switch" @click="menuSwitch()"></p>
 
