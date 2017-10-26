@@ -10,20 +10,18 @@
 
     <!--主体内容-->
     <div class="content">
-
       <!--左边的菜单栏-->
       <div id="container-left"
-           v-bind:style="{height: contentHeight + 'px',width:leftWidth }">
-        <CNavLeft :menuStatus="menuStatus"></CNavLeft>
+           v-bind:style="{height: contentHeight + 'px' }"
+           :menuStatus="menuStatus">
+        <CNavLeft></CNavLeft>
       </div>
-
       <!--右边的内容区域-->
       <div id="container-right" v-bind:style="{height: contentHeight + 'px' }">
         <keep-alive>
           <router-view></router-view>
         </keep-alive>
       </div>
-
     </div>
   </div>
 </template>
@@ -38,7 +36,6 @@
         contentHeight: 0,
         menuStatus: true,//左侧导航栏的显示状态，默认为显示,
         topHeight: 48,//顶部导航条的高度
-        leftWidth: "auto",//左边容器的宽度
       }
     },
 
@@ -60,10 +57,8 @@
       changeMenuStatus(){
         if (this.menuStatus) {
           this.menuStatus = false;
-          this.leftWidth = "220px"
           return;
         }
-        this.leftWidth = "auto"
         this.menuStatus = true;
       },
 
