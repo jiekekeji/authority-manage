@@ -135,8 +135,7 @@
   }
 
   .option-parent {
-    height: 1000px;
-    padding-right: 15px;
+    height: 800px;
     background-color: azure;
   }
 

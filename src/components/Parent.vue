@@ -18,9 +18,15 @@
       </div>
       <!--路由切换部分-->
       <div class="container-right-content" v-bind:style="{height: contentHeight + 'px'}">
-        <keep-alive>
-          <router-view></router-view>
-        </keep-alive>
+        <div class="container-right-content-router">
+          <keep-alive>
+            <router-view></router-view>
+          </keep-alive>
+        </div>
+
+        <div class="container-right-content-blank">
+
+        </div>
       </div>
       <div class="container-right-footer" v-bind:style="{height: scrollWidth + 'px'}">
       </div>
@@ -129,6 +135,17 @@
 
   .container-right-content {
     overflow: auto;
+    display: flex;
+    flex-wrap: nowrap
+  }
+
+  .container-right-content-router {
+    flex-grow: 100;
+  }
+
+  .container-right-content-blank {
+    width: 15px;
+    background-color: red;
   }
 
   .container-right-footer {
