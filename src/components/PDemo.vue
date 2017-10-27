@@ -1,7 +1,7 @@
 <template>
   <div class="parent" id="parent-pdemo">
     <!--操作表单区域-->
-    <div class="option-parent">
+    <div class="option-parent" id="option-parent-pdemo">
       <el-row :gutter="0">
         <el-col :span="4">
           <div class="grid-content bg-purple">
@@ -71,7 +71,7 @@
 
     <!--数据表格区域-->
     <div class="table-parent">
-      <el-table :data="tableData3" border width="100%" height="100%">
+      <el-table :data="tableData3" border width="100%" :max-height="tableHeight">
         <el-table-column
           prop="date"
           label="日期"
@@ -380,16 +380,25 @@
     },
     methods: {
       initTableHeight(){
+        let that = this;
+        this.tableHeight = 480
+        console.log(document.getElementById("parent-pdemo"));
         let parentHeight = document.getElementById("parent-pdemo").offsetHeight;
         let optionHeight = document.getElementById("option-parent-pdemo").offsetHeight;
         let paginationHeight = document.getElementById("pagination-parent-pdemo").offsetHeight;
-
-        this.tableHeight = window.innerHeight - optionHeight - paginationHeight - 48;
+//
+        console.log(this.$utils.getScrollWidth());
+        this.tableHeight = window.innerHeight - optionHeight - paginationHeight - this.$utils.getScrollWidth() - 48;
+        window.onresize = function () {
+          that.tableHeight = window.innerHeight - optionHeight - paginationHeight - that.$utils.getScrollWidth() - 48;
+          console.log("tableHeight", that.tableHeight);
+        };
+//        window.myGlobal.routerHeight
         console.log("tableHeight", this.tableHeight)
-        console.log("innerHeight", window.innerHeight);
-        console.log("parentHeight", document.getElementById("parent-pdemo").offsetHeight)
-        console.log("optionHeight", document.getElementById("option-parent-pdemo").offsetHeight);
-        console.log("paginationHeight", document.getElementById("pagination-parent-pdemo").offsetHeight);
+//        console.log("innerHeight", window.innerHeight);
+//        console.log("parentHeight", parentHeight)
+//        console.log("optionHeight", optionHeight);
+//        console.log("paginationHeight", paginationHeight);
       }
     }
   }
@@ -402,12 +411,10 @@
   .parent {
     height: 100%;
     width: 100%;
-    display: flex;
-    flex-wrap: wrap;
   }
 
   .option-parent {
-    height: 92px;
+    height: auto;
     width: 100%;
     overflow: hidden;
     background-color: azure;
@@ -427,8 +434,6 @@
 
   .table-parent {
     width: 100%;
-    flex-grow: 100;
-    overflow: hidden;
   }
 
   .el-row {
