@@ -413,11 +413,6 @@
     background-color: azure;
   }
 
-  .table-parent {
-    width: 100%;
-    flex-grow: 100;
-  }
-
   .pagination-parent {
     height: 58px;
     width: 100%;
@@ -428,6 +423,12 @@
       top: 13px;
       right: 120px;
     }
+  }
+
+  .table-parent {
+    width: 100%;
+    flex-grow: 100;
+    overflow: hidden;
   }
 
   .el-row {
