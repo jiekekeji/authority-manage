@@ -90,7 +90,6 @@
           return;
         }
         this.leftStatus = true;
-//        window.location.reload();
       },
 
       //监听浏览器视窗大小的变化
