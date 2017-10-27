@@ -99,6 +99,7 @@
         this.contentHeight = window.innerHeight - this.topHeight - this.scrollWidth;
         window.onresize = function () {
           that.contentHeight = parseFloat(window.innerHeight) - parseFloat(that.topHeight) - parseFloat(that.scrollWidth);
+          window.location.reload();
         };
       },
 
@@ -121,7 +122,7 @@
 <style scoped lang="scss" scoped="" type="text/scss">
 
   .parent-top-level {
-    min-width: 1200px;
+    min-width: 1100px;
     width: 100%;
     display: flex;
     flex-wrap: nowrap
@@ -149,7 +150,7 @@
 
   /*右边部分*/
   .container-right {
-    width: 980px;
+    width: 880px;
     flex-grow: 100;
     height: auto;
   }
