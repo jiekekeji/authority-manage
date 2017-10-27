@@ -70,40 +70,38 @@
     </div>
 
     <!--数据表格区域-->
-    <div class="table-parent">
-      <el-table :data="tableData3" border width="100%" :max-height="tableHeight">
-        <el-table-column
-          prop="date"
-          label="日期"
-          min-width="150">
-        </el-table-column>
-        <el-table-column
-          prop="name"
-          label="姓名"
-          min-width="120">
-        </el-table-column>
-        <el-table-column
-          prop="province"
-          label="省份"
-          min-width="120">
-        </el-table-column>
-        <el-table-column
-          prop="city"
-          label="市区"
-          min-width="120">
-        </el-table-column>
-        <el-table-column
-          prop="address"
-          label="地址"
-          min-width="300">
-        </el-table-column>
-        <el-table-column
-          prop="zip"
-          label="邮编"
-          min-width="120">
-        </el-table-column>
-      </el-table>
-    </div>
+    <el-table :data="tableData3" border width="100%" :max-height="tableHeight">
+      <el-table-column
+        prop="date"
+        label="日期"
+        min-width="150">
+      </el-table-column>
+      <el-table-column
+        prop="name"
+        label="姓名"
+        min-width="120">
+      </el-table-column>
+      <el-table-column
+        prop="province"
+        label="省份"
+        min-width="120">
+      </el-table-column>
+      <el-table-column
+        prop="city"
+        label="市区"
+        min-width="120">
+      </el-table-column>
+      <el-table-column
+        prop="address"
+        label="地址"
+        min-width="300">
+      </el-table-column>
+      <el-table-column
+        prop="zip"
+        label="邮编"
+        min-width="120">
+      </el-table-column>
+    </el-table>
 
     <!--翻页区域-->
     <div class="pagination-parent" id="pagination-parent-pdemo">
@@ -390,8 +388,9 @@
         console.log(this.$utils.getScrollWidth());
         this.tableHeight = window.innerHeight - optionHeight - paginationHeight - this.$utils.getScrollWidth() - 48;
         window.onresize = function () {
-          that.tableHeight = window.innerHeight - optionHeight - paginationHeight - that.$utils.getScrollWidth() - 48;
-          console.log("tableHeight", that.tableHeight);
+
+          that.tableHeight = window.contentHeight  - optionHeight - paginationHeight - that.$utils.getScrollWidth() - 48;
+//          alert("asdfasd" + that.tableHeight);
         };
 //        window.myGlobal.routerHeight
         console.log("tableHeight", this.tableHeight)
