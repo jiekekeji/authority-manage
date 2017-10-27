@@ -20,6 +20,8 @@
       </div>
       <!--路由切换部分-->
       <div class="container-right-content" v-bind:style="{height: contentHeight + 'px'}">
+        <div class="container-right-content-blank">
+        </div>
         <div class="container-right-content-router">
           <keep-alive>
             <router-view></router-view>
@@ -55,6 +57,27 @@
       CNavLogo
     },
 
+    beforeRouteEnter  (to, from, next) {
+
+      next()
+    },
+
+    beforeRouteLeave (to, from, next) {
+      next()
+    },
+
+    deactivated () {
+      this.$destroy(true);
+    },
+
+    watch: {},
+
+    mounted () {
+    },
+
+    computed: {},
+
+
     activated(){
       this.istenWindinSize();
     },
@@ -75,7 +98,8 @@
         this.scrollWidth = this.getScrollWidth();
         this.contentHeight = window.innerHeight - this.topHeight - this.scrollWidth;
         window.onresize = function () {
-          that.contentHeight = window.innerHeight - this.topHeight - this.scrollWidth;
+          that.contentHeight = parseFloat(window.innerHeight) - parseFloat(that.topHeight) - parseFloat(that.scrollWidth);
+          console.log(that.contentHeight);
         };
       },
 
@@ -129,7 +153,6 @@
     width: 980px;
     flex-grow: 100;
     height: auto;
-    background-color: bisque;
   }
 
   .container-right-top {
@@ -148,7 +171,7 @@
   }
 
   .container-right-content-blank {
-    width: 15px;
+    width: 10px;
   }
 
   .container-right-footer {

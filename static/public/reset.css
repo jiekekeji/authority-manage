@@ -36,3 +36,6 @@ table {
 
 /**CSS Reset 结束**/
 
+.el-breadcrumb__item__inner {
+  color: white;
+}

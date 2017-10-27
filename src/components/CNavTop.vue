@@ -2,6 +2,20 @@
 <template>
   <div class="container">
     <p class="menu_switch" @click="menuSwitch()"></p>
+    <!--面包屑-->
+    <ul class="bread-parent">
+      <li class="bread-item">
+        <router-link to="/">首页</router-link>
+      </li>
+      <li class="bread-item">
+        <span>/</span>
+        <router-link to="/">商品列表</router-link>
+      </li>
+      <li class="bread-item">
+        <span>/</span>
+        <router-link to="/">商品详情</router-link>
+      </li>
+    </ul>
   </div>
 </template>
 
@@ -43,5 +57,10 @@
     background-repeat: no-repeat;
     background-position: center;
     cursor: pointer;
+    float: left;
+  }
+
+  .el-breadcrumb__item__inner, .el-breadcrumb__item__inner a {
+    color: white;
   }
 </style>

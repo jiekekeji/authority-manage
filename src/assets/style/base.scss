@@ -2,13 +2,29 @@
 $color-top-blue: #009aff;
 
 //面包屑的样式
-.bread-top {
-  height: 42px;
-  line-height: 42px;
-  width: 100%;
-  span:first-child {
-    margin-left: 10px;
+.bread-parent {
+  height: 48px;
+  line-height: 48px;
+  width: auto;
+  display: inline-block;
+  margin-left: 12px;
+  .bread-item {
+    font-size: 14px;
+    height: 100%;
+    width: auto;
+    text-align: center;
+    padding-left: 5px;
+    padding-right: 5px;
+    float: left;
+    color: white;
+    a {
+      color: white;
+    }
+    span {
+      color: gainsboro;
+    }
   }
+
 }
 
 //翻页样式
