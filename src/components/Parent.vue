@@ -122,7 +122,7 @@
 <style scoped lang="scss" scoped="" type="text/scss">
 
   .parent-top-level {
-    min-width: 1100px;
+    min-width: 1200px;
     width: 100%;
     display: flex;
     flex-wrap: nowrap
@@ -150,7 +150,7 @@
 
   /*右边部分*/
   .container-right {
-    width: 880px;
+    width: 980px;
     flex-grow: 100;
     height: auto;
   }
