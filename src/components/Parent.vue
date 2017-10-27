@@ -1,6 +1,6 @@
 <!--主容器-->
 <template>
-  <div class="container-top-level">
+  <div class="parent-top-level">
 
     <div class="container-left">
       <div class="container-left-top">
@@ -90,7 +90,7 @@
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss" scoped="" type="text/scss">
 
-  .container-top-level {
+  .parent-top-level {
     min-width: 1200px;
     width: 100%;
     display: flex;
@@ -102,7 +102,6 @@
     width: 220px;
     height: auto;
     background-color: #eef1f7;
-
   }
 
   .container-left-top {
