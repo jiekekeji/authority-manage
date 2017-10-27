@@ -169,6 +169,7 @@
 
   .container-right-content-router {
     flex-grow: 100;
+    overflow: hidden;
   }
 
   .container-right-content-blank {
