@@ -3,7 +3,7 @@
   <div class="parent-top-level">
 
     <div class="container-left" v-show="leftStatus">
-      <div class="container-left-top">
+      <div class="container-left-top" ref="containerRightTop">
         <CNavLogo></CNavLogo>
       </div>
       <!--左侧菜单导航部分-->
@@ -90,6 +90,7 @@
           return;
         }
         this.leftStatus = true;
+//        window.location.reload();
       },
 
       //监听浏览器视窗大小的变化

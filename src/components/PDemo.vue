@@ -74,7 +74,7 @@
     <el-table
       :data="tableData3"
       border
-      width="auto"
+      width="100%"
       height="280">
       <el-table-column
         prop="date"
@@ -380,6 +380,7 @@
     },
     components: {},
     activated(){
+      console.log("activated");
     },
     methods: {}
   }
