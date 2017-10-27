@@ -1,11 +1,11 @@
 <template>
-  <div class="parent">
+  <div class="parent" id="parent-pdemo">
     <!--操作表单区域-->
     <div class="option-parent">
       <el-row :gutter="0">
         <el-col :span="4">
           <div class="grid-content bg-purple">
-            <el-input v-model="input" placeholder="请输入内容"></el-input>
+            <el-input v-model="value" placeholder="请输入内容"></el-input>
           </div>
         </el-col>
         <el-col :span="4">
@@ -23,35 +23,34 @@
 
         <el-col :span="7">
           <div class="grid-content bg-purple">
-            <el-input v-model="input" placeholder="请输入内容"></el-input>
+            <el-input v-model="value" placeholder="请输入内容"></el-input>
           </div>
         </el-col>
         <el-col :span="5">
           <div class="grid-content bg-purple">
             <el-date-picker
-              v-model="value1"
+              v-model="value"
               type="date"
               align="center"
-              placeholder="选择日期"
-              :picker-options="pickerOptions0">
+              placeholder="选择日期">
             </el-date-picker>
           </div>
         </el-col>
         <el-col :span="4">
           <div class="grid-content bg-purple">
-            <el-input v-model="input" placeholder="请输入内容"></el-input>
+            <el-input v-model="value" placeholder="请输入内容"></el-input>
           </div>
         </el-col>
       </el-row>
       <el-row :gutter="0">
         <el-col :span="8">
           <div class="grid-content bg-purple">
-            <el-input v-model="input" placeholder="请输入内容"></el-input>
+            <el-input v-model="value" placeholder="请输入内容"></el-input>
           </div>
         </el-col>
         <el-col :span="8">
           <div class="grid-content bg-purple">
-            <el-input v-model="input" placeholder="请输入内容"></el-input>
+            <el-input v-model="value" placeholder="请输入内容"></el-input>
           </div>
         </el-col>
         <el-col :span="2">
@@ -71,50 +70,45 @@
     </div>
 
     <!--数据表格区域-->
-    <el-table
-      :data="tableData3"
-      border
-      width="100%"
-      height="280">
-      <el-table-column
-        prop="date"
-        label="日期"
-        min-width="150">
-      </el-table-column>
-      <el-table-column
-        prop="name"
-        label="姓名"
-        min-width="120">
-      </el-table-column>
-      <el-table-column
-        prop="province"
-        label="省份"
-        min-width="120">
-      </el-table-column>
-      <el-table-column
-        prop="city"
-        label="市区"
-        min-width="120">
-      </el-table-column>
-      <el-table-column
-        prop="address"
-        label="地址"
-        min-width="300">
-      </el-table-column>
-      <el-table-column
-        prop="zip"
-        label="邮编"
-        min-width="120">
-      </el-table-column>
-    </el-table>
+    <div class="table-parent">
+      <el-table :data="tableData3" border width="100%" height="100%">
+        <el-table-column
+          prop="date"
+          label="日期"
+          min-width="150">
+        </el-table-column>
+        <el-table-column
+          prop="name"
+          label="姓名"
+          min-width="120">
+        </el-table-column>
+        <el-table-column
+          prop="province"
+          label="省份"
+          min-width="120">
+        </el-table-column>
+        <el-table-column
+          prop="city"
+          label="市区"
+          min-width="120">
+        </el-table-column>
+        <el-table-column
+          prop="address"
+          label="地址"
+          min-width="300">
+        </el-table-column>
+        <el-table-column
+          prop="zip"
+          label="邮编"
+          min-width="120">
+        </el-table-column>
+      </el-table>
+    </div>
 
     <!--翻页区域-->
-    <div class="pagination-parent">
+    <div class="pagination-parent" id="pagination-parent-pdemo">
       <el-pagination
         class="pagination-body"
-        @size-change="handleSizeChange"
-        @current-change="handleCurrentChange"
-        :current-page.sync="currentPage1"
         :page-size="100"
         layout="total, prev, pager, next"
         :total="1000">
@@ -127,6 +121,7 @@
   export default {
     data () {
       return {
+        tableHeight: 0,//表格的高度
         options: [{
           value: '选项1',
           label: '黄金糕'
@@ -381,8 +376,22 @@
     components: {},
     activated(){
       console.log("activated");
+      this.initTableHeight();
     },
-    methods: {}
+    methods: {
+      initTableHeight(){
+        let parentHeight = document.getElementById("parent-pdemo").offsetHeight;
+        let optionHeight = document.getElementById("option-parent-pdemo").offsetHeight;
+        let paginationHeight = document.getElementById("pagination-parent-pdemo").offsetHeight;
+
+        this.tableHeight = window.innerHeight - optionHeight - paginationHeight - 48;
+        console.log("tableHeight", this.tableHeight)
+        console.log("innerHeight", window.innerHeight);
+        console.log("parentHeight", document.getElementById("parent-pdemo").offsetHeight)
+        console.log("optionHeight", document.getElementById("option-parent-pdemo").offsetHeight);
+        console.log("paginationHeight", document.getElementById("pagination-parent-pdemo").offsetHeight);
+      }
+    }
   }
 </script>
 
@@ -393,11 +402,32 @@
   .parent {
     height: 100%;
     width: 100%;
+    display: flex;
+    flex-wrap: wrap;
   }
 
   .option-parent {
-    height: auto;
+    height: 92px;
+    width: 100%;
+    overflow: hidden;
     background-color: azure;
+  }
+
+  .table-parent {
+    width: 100%;
+    flex-grow: 100;
+  }
+
+  .pagination-parent {
+    height: 58px;
+    width: 100%;
+    background-color: #f2f2f2;
+    position: relative;
+    .pagination-body {
+      position: absolute;
+      top: 13px;
+      right: 120px;
+    }
   }
 
   .el-row {
@@ -425,7 +455,7 @@
 
   .grid-content {
     /*border-radius: 4px;*/
-    min-height: 36px;
+    height: 36px;
     padding: 5px;
   }
 

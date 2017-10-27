@@ -100,7 +100,6 @@
         this.contentHeight = window.innerHeight - this.topHeight - this.scrollWidth;
         window.onresize = function () {
           that.contentHeight = parseFloat(window.innerHeight) - parseFloat(that.topHeight) - parseFloat(that.scrollWidth);
-          console.log(that.contentHeight);
         };
       },
 
