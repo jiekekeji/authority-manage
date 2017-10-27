@@ -1,6 +1,6 @@
 <!--顶部导航组件-->
 <template>
-  <div class="parent">
+  <div class="container">
     <p class="logo">
       管理后台
     </p>
@@ -31,7 +31,7 @@
 <style scoped lang="scss" scoped="" type="text/scss">
   @import "../assets/style/base";
 
-  .parent {
+  .container {
     height: 48px;
     width: 100%;
     background-color: $color-top-blue;

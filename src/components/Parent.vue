@@ -2,8 +2,9 @@
 <template>
   <div class="parent-top-level">
 
-    <div class="container-left">
+    <div class="container-left" v-show="leftStatus">
       <div class="container-left-top">
+        <CNavLogo></CNavLogo>
       </div>
       <!--左侧菜单导航部分-->
       <div class="container-left-content" v-bind:style="{height: contentHeight + 'px'}">
@@ -15,6 +16,7 @@
 
     <div class="container-right">
       <div class="container-right-top">
+        <CNavTop v-on:changeMenuStatus="changeMenuStatus"></CNavTop>
       </div>
       <!--路由切换部分-->
       <div class="container-right-content" v-bind:style="{height: contentHeight + 'px'}">
@@ -23,9 +25,7 @@
             <router-view></router-view>
           </keep-alive>
         </div>
-
         <div class="container-right-content-blank">
-
         </div>
       </div>
       <div class="container-right-footer" v-bind:style="{height: scrollWidth + 'px'}">
@@ -37,21 +37,22 @@
 <script>
   import CNavTop from "../components/CNavTop.vue"
   import CNavLeft from "../components/CNavLeft.vue"
+  import CNavLogo from "../components/CNavLogo.vue"
   export default {
 
     data () {
       return {
         contentHeight: 0,
-        menuStatus: true,//左侧导航栏的显示状态，默认为显示,
+        leftStatus: true,//左侧导航栏的显示状态，默认为显示,
         topHeight: 48,//顶部导航条的高度
-        leftWidth: "auto",//左边容器的宽度
         scrollWidth: 0,//滚动条宽度
       }
     },
 
     components: {
       CNavTop,
-      CNavLeft
+      CNavLeft,
+      CNavLogo
     },
 
     activated(){
@@ -59,15 +60,21 @@
     },
 
     methods: {
+      //改变左侧导航栏的显示状态
+      changeMenuStatus(){
+        if (this.leftStatus) {
+          this.leftStatus = false;
+          return;
+        }
+        this.leftStatus = true;
+      },
 
       //监听浏览器视窗大小的变化
       istenWindinSize(){
         let that = this;
-        console.log(that.getScrollWidth())
         this.scrollWidth = this.getScrollWidth();
         this.contentHeight = window.innerHeight - this.topHeight - this.scrollWidth;
         window.onresize = function () {
-          console.log(that.getScrollWidth())
           that.contentHeight = window.innerHeight - this.topHeight - this.scrollWidth;
         };
       },
@@ -107,7 +114,6 @@
   .container-left-top {
     width: 220px;
     height: 48px;
-    background-color: darkseagreen;
   }
 
   .container-left-content {
@@ -129,7 +135,6 @@
   .container-right-top {
     width: 100%;
     height: 48px;
-    background-color: violet;
   }
 
   .container-right-content {
@@ -144,7 +149,6 @@
 
   .container-right-content-blank {
     width: 15px;
-    background-color: red;
   }
 
   .container-right-footer {

@@ -1,11 +1,7 @@
 <!--顶部导航组件-->
 <template>
-  <div class="parent">
-    <p class="logo">
-      管理后台
-    </p>
+  <div class="container">
     <p class="menu_switch" @click="menuSwitch()"></p>
-
   </div>
 </template>
 
@@ -33,22 +29,10 @@
 <style scoped lang="scss" scoped="" type="text/scss">
   @import "../assets/style/base";
 
-  .parent {
+  .container {
     height: 48px;
     width: 100%;
     background-color: $color-top-blue;
-  }
-
-  .logo {
-    width: 220px;
-    height: 100%;
-    color: white;
-    line-height: 48px;
-    text-indent: 16px;
-    display: inline-block;
-    float: left;
-    border-right: 0.5px dashed #eef1f7;
-    cursor: pointer;
   }
 
   .menu_switch {
