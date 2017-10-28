@@ -70,7 +70,7 @@
     </div>
 
     <!--数据表格区域-->
-    <el-table :data="tableData3" border width="100%" :max-height="tableHeight">
+    <el-table :data="tableData3" border width="100%" :height="tableHeight">
       <el-table-column
         prop="date"
         label="日期"
@@ -380,24 +380,19 @@
       initTableHeight(){
         let that = this;
         this.tableHeight = 480
-        console.log(document.getElementById("parent-pdemo"));
         let parentHeight = document.getElementById("parent-pdemo").offsetHeight;
         let optionHeight = document.getElementById("option-parent-pdemo").offsetHeight;
         let paginationHeight = document.getElementById("pagination-parent-pdemo").offsetHeight;
-//
-        console.log(this.$utils.getScrollWidth());
         this.tableHeight = window.innerHeight - optionHeight - paginationHeight - this.$utils.getScrollWidth() - 48;
-        window.onresize = function () {
 
-          that.tableHeight = window.contentHeight  - optionHeight - paginationHeight - that.$utils.getScrollWidth() - 48;
-//          alert("asdfasd" + that.tableHeight);
-        };
-//        window.myGlobal.routerHeight
-        console.log("tableHeight", this.tableHeight)
-//        console.log("innerHeight", window.innerHeight);
-//        console.log("parentHeight", parentHeight)
-//        console.log("optionHeight", optionHeight);
-//        console.log("paginationHeight", paginationHeight);
+        window.addEventListener('resize', function () {
+          let parentHeight = document.getElementById("parent-pdemo").offsetHeight;
+          let optionH = document.getElementById("option-parent-pdemo").offsetHeight;
+          let paginationH = document.getElementById("pagination-parent-pdemo").offsetHeight;
+          that.tableHeight = window.innerHeight - optionH - paginationH - that.$utils.getScrollWidth() - 48;
+          console.log("parentHeight", parentHeight);
+          console.log("tableHeight", that.tableHeight);
+        })
       }
     }
   }

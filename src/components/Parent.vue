@@ -97,10 +97,9 @@
         let that = this;
         this.scrollWidth = this.getScrollWidth();
         this.contentHeight = window.innerHeight - this.topHeight - this.scrollWidth;
-        window.onresize = function () {
+        window.addEventListener('resize', function () {
           that.contentHeight = parseFloat(window.innerHeight) - parseFloat(that.topHeight) - parseFloat(that.scrollWidth);
-          window.location.reload();
-        };
+        });
       },
 
       //获取滚动条宽度
