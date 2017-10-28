@@ -1,7 +1,7 @@
 <template>
-  <div class="parent" id="parent-pdemo">
+  <div class="parent" ref="parentPdemo">
     <!--操作表单区域-->
-    <div class="option-parent" id="option-parent-pdemo">
+    <div class="option-parent" ref="optionParentPdemo">
       <el-row :gutter="0">
         <el-col :span="4">
           <div class="grid-content bg-purple">
@@ -104,7 +104,7 @@
     </el-table>
 
     <!--翻页区域-->
-    <div class="pagination-parent" id="pagination-parent-pdemo">
+    <div class="pagination-parent" ref="paginationParentPdemo">
       <el-pagination
         class="pagination-body"
         :page-size="100"
@@ -373,25 +373,21 @@
     },
     components: {},
     activated(){
-      console.log("activated");
       this.initTableHeight();
     },
     methods: {
       initTableHeight(){
         let that = this;
         this.tableHeight = 480
-        let parentHeight = document.getElementById("parent-pdemo").offsetHeight;
-        let optionHeight = document.getElementById("option-parent-pdemo").offsetHeight;
-        let paginationHeight = document.getElementById("pagination-parent-pdemo").offsetHeight;
+        let parentHeight = this.$refs.parentPdemo.offsetHeight;
+        let optionHeight = this.$refs.optionParentPdemo.offsetHeight;
+        let paginationHeight = this.$refs.paginationParentPdemo.offsetHeight;
         this.tableHeight = window.innerHeight - optionHeight - paginationHeight - this.$utils.getScrollWidth() - 48;
-
         window.addEventListener('resize', function () {
-          let parentHeight = document.getElementById("parent-pdemo").offsetHeight;
-          let optionH = document.getElementById("option-parent-pdemo").offsetHeight;
-          let paginationH = document.getElementById("pagination-parent-pdemo").offsetHeight;
+          let parentHeight = that.$refs.parentPdemo.offsetHeight;
+          let optionH = that.$refs.optionParentPdemo.offsetHeight;
+          let paginationH = that.$refs.paginationParentPdemo.offsetHeight;
           that.tableHeight = window.innerHeight - optionH - paginationH - that.$utils.getScrollWidth() - 48;
-          console.log("parentHeight", parentHeight);
-          console.log("tableHeight", that.tableHeight);
         })
       }
     }
