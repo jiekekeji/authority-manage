@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import Plogin from "../components/Plogin.vue"
+import Parent from "../components/pages/Parent.vue"
+import Index from "../components/pages/Index.vue"
 
 import ZParent from "../components/ZParent.vue"
 import ZDemo0 from "../components/ZDemo0.vue"
@@ -9,28 +10,20 @@ Vue.use(VueRouter)
 
 //路由映射配置
 const routes = [
-  // {
-  //   path: '/',
-  //   redirect: '/parent/pdemo0'
-  // },
-  // {
-  //   path: '/parent',
-  //   component: Parent,
-  //   children: [
-  //     {
-  //       path: "pdemo0",
-  //       component: Pdemo0
-  //     },
-  //     {
-  //       path: "pdemo1",
-  //       component: Pdemo1
-  //     }
-  //   ]
-  // },
-  // {
-  //   path: "/plogin",
-  //   component: Plogin,
-  // },
+  {
+    path: '/',
+    redirect: '/parent/index'
+  },
+  {
+    path: '/parent',
+    component: Parent,
+    children: [
+      {
+        path: "index",
+        component: Index
+      }
+    ]
+  },
 
   //模板代码
   {
