@@ -8,7 +8,7 @@
              :router="true"
              :unique-opened="true"
              :collapse="menuStatus">
-      <el-menu-item index="/container/pdemo">
+      <el-menu-item index="/parent/pdemo">
         <i class="el-icon-menu"></i>
         <span slot="title">首页</span>
       </el-menu-item>
@@ -87,7 +87,6 @@
 
   .parent {
     height: 100%;
-    /*width: 200px;*/
     display: block;
   }
 </style>

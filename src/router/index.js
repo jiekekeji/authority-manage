@@ -1,47 +1,49 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import Container from "../components/Container.vue"
-import Parent from "../components/Parent.vue"
 import Plogin from "../components/Plogin.vue"
-import Pdemo0 from "../components/PDemo0.vue"
-import Pdemo1 from "../components/PDemo1.vue"
+
+import ZParent from "../components/ZParent.vue"
+import ZDemo0 from "../components/ZDemo0.vue"
+import ZDemo1 from "../components/ZDemo1.vue"
 Vue.use(VueRouter)
 
 //路由映射配置
 const routes = [
+  // {
+  //   path: '/',
+  //   redirect: '/parent/pdemo0'
+  // },
+  // {
+  //   path: '/parent',
+  //   component: Parent,
+  //   children: [
+  //     {
+  //       path: "pdemo0",
+  //       component: Pdemo0
+  //     },
+  //     {
+  //       path: "pdemo1",
+  //       component: Pdemo1
+  //     }
+  //   ]
+  // },
+  // {
+  //   path: "/plogin",
+  //   component: Plogin,
+  // },
+
+  //模板代码
   {
-    path: '/',
-    redirect: '/parent/pdemo0'
-  },
-  {
-    path: '/parent',
-    component: Parent,
+    path: '/zparent',
+    component: ZParent,
     children: [
       {
-        path: "pdemo0",
-        component: Pdemo0
+        path: "zdemo0",
+        component: ZDemo0
       },
       {
-        path: "pdemo1",
-        component: Pdemo1
-      }
-    ]
-  },
-  {
-    path: "/plogin",
-    component: Plogin,
-  },
-  {
-    path: '/container',
-    component: Container,
-    children: [
-      {
-        path: "pdemo0",
-        component: Pdemo0
-      },
-      {
-        path: "pdemo1",
-        component: Pdemo1
+        path: "zdemo1",
+        component: ZDemo1
       }
     ]
   }
