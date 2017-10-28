@@ -3,7 +3,7 @@ import VueRouter from 'vue-router'
 import Container from "../components/Container.vue"
 import Parent from "../components/Parent.vue"
 import Plogin from "../components/Plogin.vue"
-import Pdemo from "../components/PDemo.vue"
+import Pdemo0 from "../components/PDemo0.vue"
 import Pdemo1 from "../components/PDemo1.vue"
 Vue.use(VueRouter)
 
@@ -11,15 +11,15 @@ Vue.use(VueRouter)
 const routes = [
   {
     path: '/',
-    redirect: '/container'
+    redirect: '/parent/pdemo0'
   },
   {
     path: '/parent',
     component: Parent,
     children: [
       {
-        path: "pdemo",
-        component: Pdemo
+        path: "pdemo0",
+        component: Pdemo0
       },
       {
         path: "pdemo1",
@@ -36,8 +36,8 @@ const routes = [
     component: Container,
     children: [
       {
-        path: "pdemo",
-        component: Pdemo
+        path: "pdemo0",
+        component: Pdemo0
       },
       {
         path: "pdemo1",
