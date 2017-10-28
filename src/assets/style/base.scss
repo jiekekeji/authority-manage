@@ -1,6 +1,12 @@
 //常用颜色值-主色调
 $color-top-blue: #009aff;
 
+//组件顶级容器的样式
+.parent {
+  height: 100%;
+  width: 100%;
+}
+
 //面包屑的样式
 .bread-parent {
   height: 48px;
@@ -24,17 +30,31 @@ $color-top-blue: #009aff;
       color: gainsboro;
     }
   }
+}
 
+//数据表筛选条件，操作区域的方式
+.option-parent {
+  height: auto;
+  width: 100%;
+  overflow: hidden;
+  .bg-purple {
+    background: #d3dce6;
+  }
+  .grid-content {
+    height: 36px;
+    padding: 5px;
+  }
 }
 
 //翻页样式
-//.pagination-parent {
-//  height: 58px;
-//  background-color: #f2f2f2;
-//  position: relative;
-//  .pagination-body {
-//    position: absolute;
-//    top: 13px;
-//    right: 120px;
-//  }
-//}
+.pagination-parent {
+  height: 58px;
+  width: 100%;
+  background-color: #f2f2f2;
+  position: relative;
+  .pagination-body {
+    position: absolute;
+    top: 13px;
+    right: 120px;
+  }
+}

@@ -136,6 +136,20 @@ var utils = {
     scroll = oDiv.clientWidth;
     document.body.removeChild(oDiv);
     return noScroll - scroll;
+  },
+
+
+  initTableHeight: function (that) {
+    let parentHeight = that.$refs.parentPdemo.offsetHeight;
+    let optionHeight = that.$refs.optionParentPdemo.offsetHeight;
+    let paginationHeight = that.$refs.paginationParentPdemo.offsetHeight;
+    that.tableHeight = window.innerHeight - optionHeight - paginationHeight - that.$utils.getScrollWidth() - 48;
+    window.addEventListener('resize', function () {
+      let parentHeight = that.$refs.parentPdemo.offsetHeight;
+      let optionH = that.$refs.optionParentPdemo.offsetHeight;
+      let paginationH = that.$refs.paginationParentPdemo.offsetHeight;
+      that.tableHeight = window.innerHeight - optionH - paginationH - that.$utils.getScrollWidth() - 48;
+    })
   }
 }
 

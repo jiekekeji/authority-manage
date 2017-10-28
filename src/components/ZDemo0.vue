@@ -373,24 +373,10 @@
     },
     components: {},
     activated(){
-      this.initTableHeight();
+      this.$utils.initTableHeight(this);
+
     },
-    methods: {
-      initTableHeight(){
-        let that = this;
-        this.tableHeight = 480
-        let parentHeight = this.$refs.parentPdemo.offsetHeight;
-        let optionHeight = this.$refs.optionParentPdemo.offsetHeight;
-        let paginationHeight = this.$refs.paginationParentPdemo.offsetHeight;
-        this.tableHeight = window.innerHeight - optionHeight - paginationHeight - this.$utils.getScrollWidth() - 48;
-        window.addEventListener('resize', function () {
-          let parentHeight = that.$refs.parentPdemo.offsetHeight;
-          let optionH = that.$refs.optionParentPdemo.offsetHeight;
-          let paginationH = that.$refs.paginationParentPdemo.offsetHeight;
-          that.tableHeight = window.innerHeight - optionH - paginationH - that.$utils.getScrollWidth() - 48;
-        })
-      }
-    }
+    methods: {}
   }
 </script>
 
@@ -398,66 +384,5 @@
 <style scoped lang="scss" scoped="" type="text/scss">
   @import "../assets/style/base";
 
-  .parent {
-    height: 100%;
-    width: 100%;
-  }
-
-  .option-parent {
-    height: auto;
-    width: 100%;
-    overflow: hidden;
-    background-color: azure;
-  }
-
-  .pagination-parent {
-    height: 58px;
-    width: 100%;
-    background-color: #f2f2f2;
-    position: relative;
-    .pagination-body {
-      position: absolute;
-      top: 13px;
-      right: 120px;
-    }
-  }
-
-  .table-parent {
-    width: 100%;
-  }
-
-  .el-row {
-    /*margin-bottom: 5px;*/
-    /*&:last-child {*/
-    /*margin-bottom: 0;*/
-    /*}*/
-  }
-
-  .el-col {
-    border-radius: 4px;
-  }
-
-  .bg-purple-dark {
-    background: #99a9bf;
-  }
-
-  .bg-purple {
-    background: #d3dce6;
-  }
-
-  .bg-purple-light {
-    background: #e5e9f2;
-  }
-
-  .grid-content {
-    /*border-radius: 4px;*/
-    height: 36px;
-    padding: 5px;
-  }
-
-  .row-bg {
-    /*padding: 10px 0;*/
-    background-color: #f9fafc;
-  }
 
 </style>

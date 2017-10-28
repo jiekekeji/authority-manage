@@ -1,18 +1,6 @@
 <template>
   <div class="container">
-    <!--面包屑-->
-    <!--<el-breadcrumb separator="/" class="bread-top">-->
-    <!--<el-breadcrumb-item :to="{ path: '/' }">首页</el-breadcrumb-item>-->
-    <!--<el-breadcrumb-item>活动管理</el-breadcrumb-item>-->
-    <!--<el-breadcrumb-item>活动列表</el-breadcrumb-item>-->
-    <!--<el-breadcrumb-item>活动详情</el-breadcrumb-item>-->
-    <!--</el-breadcrumb>-->
     <!--操作表单区域-->
-    <p style="margin-top: 0px">sdfasdfasd</p>
-
-    <p>sdfasdfasd</p>
-    <p>sdfasdfasd</p>
-    <p>sdfasdfasd</p>
     <div class="option-parent"></div>
 
     <!--数据表格区域-->
